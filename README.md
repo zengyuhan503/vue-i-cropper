@@ -32,6 +32,7 @@
   <Vueicropper
     :option='option'
     :fixedNumber="fixedNumber"
+    :labelName="labelName"
   ></Vueicropper>
 
 ```
@@ -42,8 +43,9 @@
 
 ## 配置（修改）
 ```
+  labelName:"Logo", // LabelName  默认为Logo
   fixedNumber: [9, 2], 
- option: {
+  option: {
     img: '', // 裁剪图片的地址  (默认：空)
     outputSize: 1, // 裁剪生成图片的质量  (默认:1)
     full: false, // 是否输出原图比例的截图 选true生成的图片会非常大  (默认:false)

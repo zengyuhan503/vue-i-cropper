@@ -2,7 +2,7 @@
   <div>
     <el-row :gutter="40">
       <el-col :span="12">
-        <p style="text-align: right;">操作平台LOGO：</p>
+        <p style="text-align: right;">{{labelName}}</p>
       </el-col>
       <el-col :span="12">
         <el-upload class="avatar-uploader"
@@ -43,6 +43,12 @@ export default {
     Cropper
   },
   props: {
+    labelName: {
+      type: String,
+      default: function () {
+        return "Logo"
+      }
+    },
     uploadFile: {
       type: Function,
       default: null
