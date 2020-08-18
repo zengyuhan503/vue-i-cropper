@@ -47,6 +47,33 @@ export default {
       type: Function,
       default: null
     }
+    , fixedNumber: {
+      type: Array,
+      default: function () {
+        return [9, 2]
+      }
+    },
+    option: {
+      type: Object,
+      default: function () {
+        return {
+          img: '', // 裁剪图片的地址  (默认：空)
+          outputSize: 1, // 裁剪生成图片的质量  (默认:1)
+          full: false, // 是否输出原图比例的截图 选true生成的图片会非常大  (默认:false)
+          outputType: 'png', // 裁剪生成图片的格式  (默认:jpg)
+          canMove: true, // 上传图片是否可以移动  (默认:true)
+          original: false, // 上传图片按照原始比例渲染  (默认:false)
+          canMoveBox: true, // 截图框能否拖动  (默认:true)
+          autoCrop: true, // 是否默认生成截图框  (默认:false)
+          autoCropWidth: 480, // 默认生成截图框宽度  (默认:80%)
+          autoCropHeight: 320, // 默认生成截图框高度  (默认:80%)
+          fixedBox: false, // 固定截图框大小 不允许改变  (默认:false)
+          fixed: true, // 是否开启截图框宽高固定比例  (默认:true)
+          fixedNumber: [1.5, 1], // 截图框比例  (默认:[1:1])
+          enlarge: 1
+        }
+      }
+    }
   },
   data () {
     return {
@@ -54,24 +81,7 @@ export default {
         logo: ""
       },
       file: "",
-      fixedNumber: [9, 2],
       cropperModel: false,
-      option: {
-        img: '', // 裁剪图片的地址  (默认：空)
-        outputSize: 1, // 裁剪生成图片的质量  (默认:1)
-        full: false, // 是否输出原图比例的截图 选true生成的图片会非常大  (默认:false)
-        outputType: 'png', // 裁剪生成图片的格式  (默认:jpg) LOGO建议png
-        canMove: true, // 上传图片是否可以移动  (默认:true)
-        original: false, // 上传图片按照原始比例渲染  (默认:false)
-        canMoveBox: true, // 截图框能否拖动  (默认:true)
-        autoCrop: true, // 是否默认生成截图框  (默认:false)
-        autoCropWidth: 480, // 默认生成截图框宽度  (默认:80%)
-        autoCropHeight: 320, // 默认生成截图框高度  (默认:80%)
-        fixedBox: false, // 固定截图框大小 不允许改变  (默认:false)
-        fixed: true, // 是否开启截图框宽高固定比例  (默认:true)
-        fixedNumber: [1, 1], // 截图框比例  (默认:[1:1])
-        enlarge: 1
-      }
     }
   },
   methods: {
